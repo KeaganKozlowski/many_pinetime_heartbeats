@@ -132,8 +132,13 @@ def main(page: ft.Page):
     #Drop down box to select single device
     devices_dropdown = ft.Dropdown(width= 180, hint_text= "Choose a device", options = [ft.dropdown.Option(device) for device in device_info])
     print(devices_dropdown)
-
-    page.add(header, scan_button, device_output, connect_all_button, connect_one_button, devices_dropdown, device_data_output, exit_button)
+    #Creating a layout using rows and columns
+    connect_one_column = ft.Column([connect_one_button, devices_dropdown], spacing=10,alignment="center")
+    button_row = ft.Row([scan_button, connect_all_button, connect_one_column, exit_button],alignment="spaceEvenly")
+    output_container = ft.Column([ft.Text("Scan Results",style="titleSmall"),device_output, ft.Text("Device Data Output",style="titleSmall"),device_data_output], spacing=10,alignment="center")
+    layout = ft.Column([header, ft.Container(content=button_row,padding=ft.padding.all(10)), ft.Container(content=output_container, padding=ft.padding.all(10))], spacing=20, alignment="start",horizontal_alignment="center")
+    #Adding the layout to the page
+    page.add(layout)
 
 
 ft.app(target=main)
