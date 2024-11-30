@@ -74,3 +74,5 @@ Worker Class + Asyncio + Threading
 
 ## 6. Why PyQt6 is no longer being used
 This boiled down to several errors which I could not find a fix for, my fix did not work or the libraries being used work fully compatible with each other.
+<br>
+The main technical reason of why this library is no longer being used in the project is due to Asyncio and PyQt6 having a conflict issue. With the issue being in regards to the main thread that was running both the GUI and the asynchronous functions, however the library which is used to connect to the BLE PineTime smartwatch is reliant on asynchronous to function and without it the whole system would break. Which is why I made the difficult decision instead to recreate the whole GUI in Flet instead of trying to fix a problem with my very limited understanding and technical skills.
