@@ -74,3 +74,4 @@ Worker Class + Asyncio + Threading
 
 ## 6. Why PyQt6 is no longer being used
 This boiled down to several errors which I could not find a fix for, my fix did not work or the libraries being used work fully compatible with each other.
+Hello I have broken and i dont care
